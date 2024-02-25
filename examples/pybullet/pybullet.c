@@ -12188,6 +12188,8 @@ static PyObject* pybullet_calculateInverseDynamics(PyObject* self, PyObject* arg
 		int physicsClientId = 0;
 		int flags = 0;
 		b3PhysicsClientHandle sm = 0;
+
+		
 		static char* kwlist[] = {"bodyUniqueId", "objPositions",
 								 "objVelocities", "objAccelerations",
 								 "flags",
@@ -12206,6 +12208,7 @@ static PyObject* pybullet_calculateInverseDynamics(PyObject* self, PyObject* arg
 											 &bodyUniqueId, &objPositionsQ, &objVelocitiesQdot,
 											 &objAccelerations, &physicsClientId))
 			{
+				PyErr_SetString(SpamError, "ParseTupleAndKeywords Error - CT");
 				return NULL;
 			}
 		}
@@ -12284,6 +12287,7 @@ static PyObject* pybullet_calculateInverseDynamics(PyObject* self, PyObject* arg
 					{
 						PyErr_SetString(SpamError,
 										"Error in calculateInverseDynamics, please check arguments.");
+						return NULL;
 					}
 				}
 				free(jointPositionsQ);
@@ -12304,6 +12308,8 @@ static PyObject* pybullet_calculateInverseDynamics(PyObject* self, PyObject* arg
 		}
 	}
 	Py_INCREF(Py_None);
+	//PyErr_SetString(SpamError, "End error - CT");
+	//return NULL;
 	return Py_None;
 }
 

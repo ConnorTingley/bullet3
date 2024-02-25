@@ -88,11 +88,19 @@ ELSEIF (APPLE)
 ENDIF ()
 # else Linux: dont link
 
-IF(WIN32)
-  SET(PYTHON_SITE_PACKAGES Lib/site-packages CACHE PATH "Python install path")
-ELSE()
-  SET(PYTHON_SITE_PACKAGES lib/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages CACHE PATH "Python install path")
-ENDIF()
+#IF(WIN32)
+#  SET(PYTHON_SITE_PACKAGES Lib/site-packages CACHE PATH "Python install path")
+#ELSE()
+#  SET(PYTHON_SITE_PACKAGES lib/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages CACHE PATH "Python install path")
+#ENDIF()
+set(PYTHON_SITE_PACKAGES D:\\Users\\Connor\\anaconda3\\envs\\debug_pybullet\\Lib\\site-packages)
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
+
+add_definitions( -DBUILD_PYBULLET=ON )
+add_definitions( -DBUILD_PYBULLET_NUMPY=ON )
+add_definitions( -DUSE_DOUBLE_PRECISION=ON )
+add_definitions( -DBT_USE_EGL=ON )
+add_definitions( -DCMAKE_BUILD_TYPE=Debug)
 
 INSTALL(TARGETS pybullet DESTINATION ${PYTHON_SITE_PACKAGES})
 

@@ -1,4 +1,5 @@
 #include "MultiBodyTreeImpl.hpp"
+#include <iostream>
 
 namespace btInverseDynamics
 {
@@ -278,6 +279,20 @@ void MultiBodyTree::MultiBodyImpl::calculateStaticData()
 int MultiBodyTree::MultiBodyImpl::calculateInverseDynamics(const vecx &q, const vecx &u,
 														   const vecx &dot_u, vecx *joint_forces)
 {
+	std::cout << "q" << std::endl;
+	for (int i = 0; i < q.size(); i++) 
+    	std::cout << q[i] <<", ";
+	std::cout  << std::endl;
+
+	std::cout << "u" << std::endl;
+	for (int i = 0; i < u.size(); i++) 
+    	std::cout << u[i] <<", ";
+	std::cout  << std::endl;
+
+	std::cout << "Sizes" << std::endl;
+	std::cout << q.size() << std::endl;
+	std::cout << u.size() << std::endl;
+	std::cout << dot_u.size() << std::endl;
 	if (q.size() != m_num_dofs || u.size() != m_num_dofs || dot_u.size() != m_num_dofs ||
 		joint_forces->size() != m_num_dofs)
 	{

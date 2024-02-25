@@ -140,7 +140,8 @@ else()
       unset(_PYTHON_EXECUTABLE CACHE)
       find_program(_PYTHON_EXECUTABLE ${_CURRENT_PYTHON_NAME}
         PATHS [HKEY_LOCAL_MACHINE\\SOFTWARE\\Python\\PythonCore\\${_CURRENT_VERSION}\\InstallPath])
-
+      
+        set(_PYTHON_EXECUTABLE D:\\Users\\Connor\\anaconda3\\envs\\debug_pybullet)
       if(_PYTHON_EXECUTABLE)
 
         EXECUTE_PROCESS(

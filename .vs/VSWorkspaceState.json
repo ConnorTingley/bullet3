@@ -1,0 +1,15 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "out\\build\\x64-Debug",
+      "out\\install\\x64-Debug"
+    ]
+  },
+  "ExpandedNodes": [
+    "",
+    "\\examples",
+    "\\examples\\pybullet"
+  ],
+  "SelectedNode": "\\examples\\pybullet\\pybullet.c",
+  "PreviewInSolutionExplorer": false
+}

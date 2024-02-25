@@ -12362,7 +12362,7 @@ bool PhysicsServerCommandProcessor::processInverseDynamicsCommand(const struct S
 				}
 				for (int i = 0; i < num_dofs; i++)
 				{
-					q[i + baseDofQ] = clientCmd.m_calculateInverseDynamicsArguments.m_jointPositionsQ[i + baseDofQ];
+					q[i + baseDofQ - 1] = clientCmd.m_calculateInverseDynamicsArguments.m_jointPositionsQ[i + baseDofQ];
 				}
 				for (int i = 0; i < num_dofs + baseDofQdot; i++)
 				{
